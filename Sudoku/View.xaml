@@ -1,0 +1,302 @@
+﻿<Window x:Name="MainView" x:Class="Sudoku.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku"
+        mc:Ignorable="d"
+        Title="Sudoku" Height="430" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Closing="onClosing">
+    <Grid>
+        <Rectangle x:Name="Square0" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="122" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="122"/>
+        <Rectangle x:Name="Square1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="122" Margin="137,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="122"/>
+        <Rectangle x:Name="Square2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="122" Margin="264,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="122"/>
+        <Rectangle x:Name="Square3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="122" Margin="10,137,0,0" Stroke="Black" VerticalAlignment="Top" Width="122"/>
+        <Rectangle x:Name="Square4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="122" Margin="137,137,0,0" Stroke="Black" VerticalAlignment="Top" Width="122"/>
+        <Rectangle x:Name="Square5" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="122" Margin="264,137,0,0" Stroke="Black" VerticalAlignment="Top" Width="122"/>
+        <Rectangle x:Name="Square6" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="122" Margin="10,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="122"/>
+        <Rectangle x:Name="Square7" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="122" Margin="137,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="122"/>
+        <Rectangle x:Name="Square8" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="122" Margin="264,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="10,50,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="10,91,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator Height="1" Margin="-11,71,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator Height="1" Margin="30,71,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="137,50,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="137,91,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator Height="1" Margin="116,71,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator Height="1" Margin="157,71,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="264,50,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="264,91,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator Height="1" Margin="243,71,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator Height="1" Margin="284,71,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="10,177,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="10,218,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator Height="1" Margin="-11,198,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator Height="1" Margin="30,198,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="137,177,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="137,218,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator Height="1" Margin="116,198,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator Height="1" Margin="157,198,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="264,177,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="264,218,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator Height="1" Margin="243,198,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator Height="1" Margin="284,198,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="10,304,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="10,345,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator Height="1" Margin="-11,324,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator Height="1" Margin="30,324,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="137,304,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="137,345,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator Height="1" Margin="116,324,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator Height="1" Margin="157,324,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="264,304,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator HorizontalAlignment="Left" Height="1" Margin="264,345,0,0" VerticalAlignment="Top" Width="122"/>
+        <Separator Height="1" Margin="243,324,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator Height="1" Margin="284,324,0,0" Width="122" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="404,366,0,0" VerticalAlignment="Top" Width="75" Click="exitButton" TabIndex="83"/>
+        <Button x:Name="btnSolve" Content="Solve" HorizontalAlignment="Left" Margin="404,341,0,0" VerticalAlignment="Top" Width="75" TabIndex="82" Click="solveButton"/>
+        <Button x:Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="404,316,0,0" VerticalAlignment="Top" Width="75" TabIndex="81" Click="generateButton"/>
+        <TextBox x:Name="txt00" HorizontalAlignment="Left" Height="30" Margin="16,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="0" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt01" HorizontalAlignment="Left" Height="30" Margin="56,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="1" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt02" HorizontalAlignment="Left" Height="30" Margin="96,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="2" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt03" HorizontalAlignment="Left" Height="30" Margin="143,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="3" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt04" HorizontalAlignment="Left" Height="30" Margin="183,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="4" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt05" HorizontalAlignment="Left" Height="30" Margin="223,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="5" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt06" HorizontalAlignment="Left" Height="30" Margin="270,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="6" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt07" HorizontalAlignment="Left" Height="30" Margin="310,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="7" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt08" HorizontalAlignment="Left" Height="30" Margin="350,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="8" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt10" HorizontalAlignment="Left" Height="30" Margin="16,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="9" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt11" HorizontalAlignment="Left" Height="30" Margin="56,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="10" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt12" HorizontalAlignment="Left" Height="30" Margin="96,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="11" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt13" HorizontalAlignment="Left" Height="30" Margin="143,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="12" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt14" HorizontalAlignment="Left" Height="30" Margin="183,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="13" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt15" HorizontalAlignment="Left" Height="30" Margin="223,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="14" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt16" HorizontalAlignment="Left" Height="30" Margin="270,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="15" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt17" HorizontalAlignment="Left" Height="30" Margin="310,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="16" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt18" HorizontalAlignment="Left" Height="30" Margin="350,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="17" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt20" HorizontalAlignment="Left" Height="30" Margin="16,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="18" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt21" HorizontalAlignment="Left" Height="30" Margin="56,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="19" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt22" HorizontalAlignment="Left" Height="30" Margin="96,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="20" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt23" HorizontalAlignment="Left" Height="30" Margin="143,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="21" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt24" HorizontalAlignment="Left" Height="30" Margin="183,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="22" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt25" HorizontalAlignment="Left" Height="30" Margin="223,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="23" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt26" HorizontalAlignment="Left" Height="30" Margin="270,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="24" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt27" HorizontalAlignment="Left" Height="30" Margin="310,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="25" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt28" HorizontalAlignment="Left" Height="30" Margin="350,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="26" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt30" HorizontalAlignment="Left" Height="30" Margin="16,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="27" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt31" HorizontalAlignment="Left" Height="30" Margin="56,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="28" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt32" HorizontalAlignment="Left" Height="30" Margin="96,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="29" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt33" HorizontalAlignment="Left" Height="30" Margin="143,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="30" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt34" HorizontalAlignment="Left" Height="30" Margin="183,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="31" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt35" HorizontalAlignment="Left" Height="30" Margin="223,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="32" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt36" HorizontalAlignment="Left" Height="30" Margin="270,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="33" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt37" HorizontalAlignment="Left" Height="30" Margin="310,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="34" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt38" HorizontalAlignment="Left" Height="30" Margin="350,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="35" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt40" HorizontalAlignment="Left" Height="30" Margin="16,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="36" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt41" HorizontalAlignment="Left" Height="30" Margin="56,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="37" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt42" HorizontalAlignment="Left" Height="30" Margin="96,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="38" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt43" HorizontalAlignment="Left" Height="30" Margin="143,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="39" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt44" HorizontalAlignment="Left" Height="30" Margin="183,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="40" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt45" HorizontalAlignment="Left" Height="30" Margin="223,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="41" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt46" HorizontalAlignment="Left" Height="30" Margin="270,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="42" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt47" HorizontalAlignment="Left" Height="30" Margin="310,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="43" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt48" HorizontalAlignment="Left" Height="30" Margin="350,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="44" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt50" HorizontalAlignment="Left" Height="30" Margin="16,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="45" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt51" HorizontalAlignment="Left" Height="30" Margin="56,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="46" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt52" HorizontalAlignment="Left" Height="30" Margin="96,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="47" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt53" HorizontalAlignment="Left" Height="30" Margin="143,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="48" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt54" HorizontalAlignment="Left" Height="30" Margin="183,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="49" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt55" HorizontalAlignment="Left" Height="30" Margin="223,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="50" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt56" HorizontalAlignment="Left" Height="30" Margin="270,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="51" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt57" HorizontalAlignment="Left" Height="30" Margin="310,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="52" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt58" HorizontalAlignment="Left" Height="30" Margin="350,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="53" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt60" HorizontalAlignment="Left" Height="30" Margin="16,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="54" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt61" HorizontalAlignment="Left" Height="30" Margin="56,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="55" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt62" HorizontalAlignment="Left" Height="30" Margin="96,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="56" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt63" HorizontalAlignment="Left" Height="30" Margin="143,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="57" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt64" HorizontalAlignment="Left" Height="30" Margin="183,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="58" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt65" HorizontalAlignment="Left" Height="30" Margin="223,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="59" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt66" HorizontalAlignment="Left" Height="30" Margin="270,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="60" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt67" HorizontalAlignment="Left" Height="30" Margin="310,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="61" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt68" HorizontalAlignment="Left" Height="30" Margin="350,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="62" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt70" HorizontalAlignment="Left" Height="30" Margin="16,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="63" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt71" HorizontalAlignment="Left" Height="30" Margin="56,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="64" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt72" HorizontalAlignment="Left" Height="30" Margin="96,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="65" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt73" HorizontalAlignment="Left" Height="30" Margin="143,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="66" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt74" HorizontalAlignment="Left" Height="30" Margin="183,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="67" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt75" HorizontalAlignment="Left" Height="30" Margin="223,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="68" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt76" HorizontalAlignment="Left" Height="30" Margin="270,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="69" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt77" HorizontalAlignment="Left" Height="30" Margin="310,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="70" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt78" HorizontalAlignment="Left" Height="30" Margin="350,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="71" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt80" HorizontalAlignment="Left" Height="30" Margin="16,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="72" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt81" HorizontalAlignment="Left" Height="30" Margin="56,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="73" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt82" HorizontalAlignment="Left" Height="30" Margin="96,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="74" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt83" HorizontalAlignment="Left" Height="30" Margin="143,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="75" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt84" HorizontalAlignment="Left" Height="30" Margin="183,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="76" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt85" HorizontalAlignment="Left" Height="30" Margin="223,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="77" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt86" HorizontalAlignment="Left" Height="30" Margin="270,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="78" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt87" HorizontalAlignment="Left" Height="30" Margin="310,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="79" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+        <TextBox x:Name="txt88" HorizontalAlignment="Left" Height="30" Margin="350,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextAlignment="Center" FontSize="18.667" PreviewTextInput="updatedGrid" TabIndex="80" MaxLength="1" MaxLines="1" PreviewKeyDown="keyDown"/>
+    </Grid>
+</Window>
