@@ -22,7 +22,6 @@ namespace Sudoku
     public partial class MainWindow : Window
     {
         SudokuGrid sudokuGrid;
-        Solver solver;
 
         #region Initialization
         public MainWindow()
@@ -53,7 +52,6 @@ namespace Sudoku
         private void initializeGlobals()
         {
             sudokuGrid = new SudokuGrid();
-            solver = new Solver();
         }
         #endregion
 
@@ -72,6 +70,12 @@ namespace Sudoku
         private void solveButton(object sender, RoutedEventArgs e)
         {
             sudokuGrid.setData(createGridFromFields());
+            if (sudokuGrid.isValid())
+            {
+                Solver solver = new Solver(sudokuGrid);
+                sudokuGrid = solver.solve();
+                fillFieldsFromGrid(sudokuGrid.getData());
+            }
         }
 
         /// <summary>
@@ -184,7 +188,7 @@ namespace Sudoku
                     if (number != 0)
                     {
                         txtBox.Text = number.ToString();
-                        txtBox.IsReadOnly = true;
+                        txtBox.IsReadOnly = false;
                     }
                 }
             }
