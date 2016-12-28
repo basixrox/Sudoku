@@ -43,6 +43,14 @@ namespace Sudoku
             }
             return _grid;
         }
+
+        public void setGrid(SudokuGrid grid)
+        {
+            if (grid.isValid(false))
+            {
+                _grid = grid;
+            }
+        }
         #endregion
 
         #region Helpers
