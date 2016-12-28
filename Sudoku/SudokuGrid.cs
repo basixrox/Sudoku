@@ -176,6 +176,25 @@ namespace Sudoku
 
             return true;
         }
+
+        /// <summary>
+        /// Checks, if Sudoku Grid is completed
+        /// </summary>
+        /// <returns><code>true</code>, when all fields are filled - <code>false</code>, when at least one field is missing</returns>
+        public Boolean allFieldsFilled()
+        {
+            for (int row=0; row<9; row++)
+            {
+                for (int col=0; col<9; col++)
+                {
+                    if (data[row,col] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         #endregion
     }
 }
