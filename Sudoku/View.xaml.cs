@@ -70,7 +70,7 @@ namespace Sudoku
         private void solveButton(object sender, RoutedEventArgs e)
         {
             sudokuGrid.setData(createGridFromFields());
-            if (sudokuGrid.isValid())
+            if (sudokuGrid.isValid(true))
             {
                 Solver solver = new Solver(sudokuGrid);
                 sudokuGrid = solver.solve();
