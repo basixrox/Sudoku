@@ -8,30 +8,77 @@ namespace Sudoku
 {
     class Solver
     {
-        public int[,] Puzzle { get; set; }
-        public int[,] Solution { get; set; }
-        private static readonly Random rng = new Random();
+        private SudokuGrid _grid;
+        private SudokuGrid _solution;
 
-        public bool solvePuzzle()
+        #region constructors
+        public Solver()
         {
-            if (Puzzle == null) return false;
-
-            Solution = Puzzle;
-            return Solve();
+            _grid = new SudokuGrid();
         }
 
-        public static List<T> Shuffle<T>(List<T> list)
+        public Solver (SudokuGrid grid)
         {
-            int n = list.Count;
-            while (n > 1)
+            _grid = grid;
+        }
+
+        public Solver(int[,] numbers)
+        {
+            _grid = new SudokuGrid(numbers);
+        }
+        #endregion
+
+        #region Main Functions
+        public SudokuGrid solve()
+        {
+            _solution = new SudokuGrid();
+            if (solveRecursion() == true)
             {
-                n--;
-                int k = rng.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
+                _grid = _solution;
             }
-            return list;
+            return _grid;
+        }
+
+        private bool solveRecursion()
+        {
+            for (int row = 0; row < 9; row++)
+            {
+                for (int col = 0; col < 9; col++)
+                {
+                    if (_solution.getData()[row, col] != 0) continue;
+
+                    List<int> availableValues = GetAvailableValues(row, col);
+
+                    do
+                    {
+                        if (availableValues.Count == 0)
+                        {
+                            _solution.getData()[row, col] = 0;
+                            return false;
+                        }
+
+                        _solution.getData()[row, col] = availableValues[0];
+                        availableValues.RemoveAt(0);
+                    } while (this.solveRecursion() == false); // Rekursiver Aufruf
+                }
+            }
+            return true;
+        }
+
+        public void setGrid(SudokuGrid grid)
+        {
+            if (grid.isValid(false))
+            {
+                _grid = grid;
+            }
+        }
+        #endregion
+
+        #region Helpers
+        private int determineSquare(int row, int column)
+        {
+            int square = ((row / 3) * 3) + (column / 3);
+            return square;
         }
 
         private List<int> GetAvailableValues(int row, int col)
@@ -64,56 +111,6 @@ namespace Sudoku
 
             return values;
         }
-
-        private bool Solve()
-        {
-            //Suche das nächste zu besetzende Feld
-            for (int row = 0; row < 9; row++)
-            {
-                for (int col = 0; col < 9; col++)
-                {
-                    if (Solution[row, col] != 0) continue;
-
-                    List<int> availableValues = GetAvailableValues(row, col);
-
-                    do
-                    {
-                        /* Abbruchbedingung 1 (false):
-                         *  Es gibt keine verfügbaren Werte für das nächste zu besetzende Feld
-                         *  Das Rätsel kann nicht gelöst werden -> Backtracking
-                         */
-                        if (availableValues.Count == 0)
-                        {
-                            Solution[row, col] = 0;
-                            return false;
-                        }
-
-                        Solution[row, col] = availableValues[0];
-                        availableValues.RemoveAt(0);
-                    } while (this.Solve() == false); // Rekursiver Aufruf
-                }
-            }
-            /* Abbruchbedingung 2 (true):
-             *  Es sind alle Felder befüllt
-             *  Das Rätsel wurde gelöst
-             */
-            return true;
-        }
-
-        private int DetermineSquare(int row, int col)
-        {
-            /*   0 │ 1 │ 2      row ist jeweils 0, 1 oder 2
-             *  ───┼───┼───
-             *   3 │ 4 │ 5      row ist jeweils 3, 4 oder 5
-             *  ───┼───┼───
-             *   6 │ 7 │ 8      row ist jeweils 6, 7 oder 8
-             *   
-             *   Berechnung:
-             *   3 * (row / 3) ergibt 0, 3 oder 6
-             *   addiert man (col / 3) dazu (0, 1 oder 2) ist das Ergebnis das korrekte Quadrat
-             */
-
-            return 3 * (row / 3) + col / 3;
-        }
+        #endregion
     }
 }
