@@ -20,7 +20,7 @@ namespace Sudoku
         public SudokuGrid(int[,] myData)
         {
             this.data = myData;
-            if (!isValid())
+            if (!isValid(true))
             {
                 this.data = new int[9, 9];
             }
@@ -102,7 +102,7 @@ namespace Sudoku
         {
             int[,] oldData = data;
             data = newData;
-            if (!isValid())
+            if (!isValid(true))
             {
                 data = oldData;
                 return false;
@@ -116,7 +116,7 @@ namespace Sudoku
         /// Checks if the saved grid is valid
         /// </summary>
         /// <returns>true, if valid, false otherwise</returns>
-        public Boolean isValid()
+        public Boolean isValid(bool output)
         {
 
             #region check each row and column
@@ -132,13 +132,19 @@ namespace Sudoku
 
                     if (col != 0 && colValues.Contains(col))
                     {
-                        MessageBox.Show(String.Format("Row {0} (column {1}) contains a duplicate number ({2}) for that column!", j, i, col));
+                        if (output)
+                        {
+                            MessageBox.Show(String.Format("Row {0} (column {1}) contains a duplicate number ({2}) for that column!", j, i, col));
+                        }
                         return false;
                     }
 
                     if (row != 0 && rowValues.Contains(row))
                     {
-                        MessageBox.Show(String.Format("Row {0} (column {1}) contains a duplicate number ({2}) for that row!", i, j, row));
+                        if (output)
+                        {
+                            MessageBox.Show(String.Format("Row {0} (column {1}) contains a duplicate number ({2}) for that row!", i, j, row));
+                        }
                         return false;
                     }
 
@@ -165,7 +171,10 @@ namespace Sudoku
 
                         if (current != 0 && squareValues.Contains(current))
                         {
-                            MessageBox.Show(String.Format("Square {0} contains a duplicate {1}", square, current));
+                            if (output)
+                            {
+                                MessageBox.Show(String.Format("Square {0} contains a duplicate {1}", square, current));
+                            }
                             return false;
                         }
                         squareValues.Add(current);
@@ -174,6 +183,25 @@ namespace Sudoku
             }
             #endregion
 
+            return true;
+        }
+
+        /// <summary>
+        /// Checks, if Sudoku Grid is completed
+        /// </summary>
+        /// <returns><code>true</code>, when all fields are filled - <code>false</code>, when at least one field is missing</returns>
+        public Boolean allFieldsFilled()
+        {
+            for (int row=0; row<9; row++)
+            {
+                for (int col=0; col<9; col++)
+                {
+                    if (data[row,col] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
             return true;
         }
         #endregion

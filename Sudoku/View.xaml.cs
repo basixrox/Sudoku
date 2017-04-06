@@ -22,7 +22,6 @@ namespace Sudoku
     public partial class MainWindow : Window
     {
         SudokuGrid sudokuGrid;
-        Solver solver;
 
         #region Initialization
         public MainWindow()
@@ -53,7 +52,6 @@ namespace Sudoku
         private void initializeGlobals()
         {
             sudokuGrid = new SudokuGrid();
-            solver = new Solver();
         }
         #endregion
 
@@ -72,11 +70,15 @@ namespace Sudoku
         private void solveButton(object sender, RoutedEventArgs e)
         {
             sudokuGrid.setData(createGridFromFields());
-            solver.Puzzle = sudokuGrid.getData();
-            if (solver.solvePuzzle())
+            if (sudokuGrid.isValid(true))
             {
-                sudokuGrid.setData(solver.Solution);
-                fillFieldsFromGrid(solver.Solution);
+                Solver solver = new Solver(sudokuGrid);
+                sudokuGrid = solver.solve();
+                if (!sudokuGrid.allFieldsFilled())
+                {
+                    MessageBox.Show("Some fields could not be filled - the puzzle is ambigious.", "Ambigious puzzle", MessageBoxButton.OK);
+                }
+                fillFieldsFromGrid(sudokuGrid.getData(), false);
             }
         }
 
@@ -86,8 +88,21 @@ namespace Sudoku
         private void generateButton(object sender, RoutedEventArgs e)
         {
             //TODO
-            int[,] test = new int[9, 9];
-            fillFieldsFromGrid(test);
+            MessageBoxResult generate = MessageBox.Show("Are you sure, you want to generate a random puzzle? All your changes will be lost.", "Please confirm", MessageBoxButton.YesNoCancel);
+
+            if (generate == MessageBoxResult.Yes)
+            {
+                int[,] grid = new int[9, 9];
+                Random rnd = new Random(DateTime.Now.Millisecond);
+                for (int i = 0; i < 9; i++)
+                {
+                    for (int j = 0; j < 9; j++)
+                    {
+                        grid[i, j] = rnd.Next(1, 9);
+                    }
+                }
+                fillFieldsFromGrid(grid, false);
+            }
         }
         #endregion
 
@@ -169,6 +184,9 @@ namespace Sudoku
                     if(txtBox.Text != "")
                     {
                         newGrid[row, col] = int.Parse(txtBox.Text);
+                    } else
+                    {
+                        newGrid[row, col] = 0;
                     }
                 }
             }
@@ -179,7 +197,7 @@ namespace Sudoku
         /// publishes an int array [,] to the text boxes of the View
         /// </summary>
         /// <param name="grid">the array to show</param>
-        private void fillFieldsFromGrid(int[,] grid)
+        private void fillFieldsFromGrid(int[,] grid, bool readOnly = false)
         {
             for (int row = 0; row < 9; row++)
             {
@@ -190,7 +208,7 @@ namespace Sudoku
                     if (number != 0)
                     {
                         txtBox.Text = number.ToString();
-                       // txtBox.IsReadOnly = true;
+                        txtBox.IsReadOnly = readOnly;
                     }
                 }
             }
