@@ -10,6 +10,7 @@ namespace Sudoku
     {
         private SudokuGrid _grid;
         private SudokuGrid _solution;
+        private static readonly Random rng = new Random();
 
         #region constructors
         public Solver()
@@ -31,12 +32,26 @@ namespace Sudoku
         #region Main Functions
         public SudokuGrid solve()
         {
-            _solution = new SudokuGrid();
+            _solution = _grid;
             if (solveRecursion() == true)
             {
                 _grid = _solution;
             }
             return _grid;
+        }
+
+        public static List<T> Shuffle<T>(List<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+            return list;
         }
 
         private bool solveRecursion()
@@ -86,25 +101,25 @@ namespace Sudoku
             List<int> values = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
             //Alle Werte entfernen, die im Quadrat bereits vorhanden sind
-            int square = DetermineSquare(row, col);
+            int square = determineSquare(row, col);
             for (int sqrRow = (square / 3) * 3; sqrRow < (square / 3) * 3 + 3; sqrRow++)
             {
                 for (int sqrCol = (square % 3) * 3; sqrCol < (square % 3) * 3 + 3; sqrCol++)
                 {
-                    if (Solution[sqrRow, sqrCol] != 0) values.Remove(Solution[sqrRow, sqrCol]);
+                    if (_solution.getData()[sqrRow, sqrCol] != 0) values.Remove(_solution.getData()[sqrRow, sqrCol]);
                 }
             }
 
             //Alle Werte entfernen, die in der Reihe bereits vorhanden sind
             for (int rowCol = 0; rowCol < 9; rowCol++)
             {
-                if (Solution[row, rowCol] != 0) values.Remove(Solution[row, rowCol]);
+                if (_solution.getData()[row, rowCol] != 0) values.Remove(_solution.getData()[row, rowCol]);
             }
 
             //Alle Werte entfernen, die in der Zeile vorhanden sind
             for (int colRow = 0; colRow < 9; colRow++)
             {
-                if (Solution[colRow, col] != 0) values.Remove(Solution[colRow, col]);
+                if (_solution.getData()[colRow, col] != 0) values.Remove(_solution.getData()[colRow, col]);
             }
 
             values = Shuffle(values);
