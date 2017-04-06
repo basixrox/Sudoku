@@ -77,7 +77,7 @@ namespace Sudoku
                     } while (this.solveRecursion() == false); // Rekursiver Aufruf
                 }
             }
-            return true;
+            return _solution.isValid(false);
         }
 
         public void setGrid(SudokuGrid grid)

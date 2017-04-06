@@ -74,10 +74,6 @@ namespace Sudoku
             {
                 Solver solver = new Solver(sudokuGrid);
                 sudokuGrid = solver.solve();
-                if (!sudokuGrid.allFieldsFilled())
-                {
-                    MessageBox.Show("Some fields could not be filled - the puzzle is ambigious.", "Ambigious puzzle", MessageBoxButton.OK);
-                }
                 fillFieldsFromGrid(sudokuGrid.getData(), false);
             }
         }
@@ -92,16 +88,10 @@ namespace Sudoku
 
             if (generate == MessageBoxResult.Yes)
             {
-                int[,] grid = new int[9, 9];
-                Random rnd = new Random(DateTime.Now.Millisecond);
-                for (int i = 0; i < 9; i++)
-                {
-                    for (int j = 0; j < 9; j++)
-                    {
-                        grid[i, j] = rnd.Next(1, 9);
-                    }
-                }
-                fillFieldsFromGrid(grid, false);
+                sudokuGrid.setData(new int[9,9]);
+                Solver solver = new Solver(sudokuGrid);
+                sudokuGrid = solver.solve();
+                fillFieldsFromGrid(sudokuGrid.getData(), false);
             }
         }
         #endregion
