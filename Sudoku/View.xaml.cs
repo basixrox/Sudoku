@@ -72,6 +72,12 @@ namespace Sudoku
         private void solveButton(object sender, RoutedEventArgs e)
         {
             sudokuGrid.setData(createGridFromFields());
+            solver.Puzzle = sudokuGrid.getData();
+            if (solver.solvePuzzle())
+            {
+                sudokuGrid.setData(solver.Solution);
+                fillFieldsFromGrid(solver.Solution);
+            }
         }
 
         /// <summary>
@@ -184,7 +190,7 @@ namespace Sudoku
                     if (number != 0)
                     {
                         txtBox.Text = number.ToString();
-                        txtBox.IsReadOnly = true;
+                       // txtBox.IsReadOnly = true;
                     }
                 }
             }
