@@ -14,7 +14,7 @@ Work in Progress
 ```
 
 - [X] Create GUI  
-- [ ] Create Sudoku Solver  
+- [X] Create Sudoku Solver  
 - [ ] Create Sudoku Generator
 - [ ] Export and Import Puzzles
 
